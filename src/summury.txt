@@ -1,0 +1,7 @@
+
+
+1 
+in subtotal component we used react-currency-format which is react library
+
+2
+we have used reduce() to perform some basket operations like sum of prices and how much items to Display

@@ -9,7 +9,6 @@
 
 .header__logo{
     width: 100px;
-    
     object-fit: contain;
     margin: 18px  20px 0px 20px;
 }
@@ -58,14 +57,12 @@
     display: flex;
     align-items: center;
     color: white;
-    
-    margin-top: -12px;
-
-    
+    margin-top: 5px;
 }
 .header__items_BasketCount{
     margin-left: 10px;
     margin-right: 10px;
+
     
 }
 
