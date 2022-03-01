@@ -23,6 +23,9 @@ const Header = () => {
         </div>
 
         <div className="header__nav">
+
+            {/* wrap in the login  */}
+            <Link to="/login">
             <div className="header__items">
                 <span className="header__items_lineOne">
                     Hello world!
@@ -31,6 +34,7 @@ const Header = () => {
                     sign In
                 </span>
             </div>
+            </Link>
             <div className="header__items">
                 <span className="header__items_lineOne">
                     Return

@@ -4,7 +4,7 @@ import { useStateValue } from "../CONTEXT/StateProvider";
 
 
 const Product = (props) => {
-  const {key, title, price, image, rating } = props;
+  const {id, title, price, image, rating } = props;
 
   // state for the basket
   const [{basket}, setDispatch] = useStateValue();
@@ -15,18 +15,19 @@ const Product = (props) => {
     setDispatch({  
       type: "ADD_TO_BASKET",
       item: {
-        id: key,
+        id: id,
         title: title,
         image: image,
         price: price,
         rating: rating,
-      },
-    });
+      }});
+     
   };
   return (
     <div className="product">
       <div className="product__info">
         <p>{title}</p>
+       
         <p className="product__info">
           <small>$</small>
           <strong>{price}</strong>
@@ -35,7 +36,7 @@ const Product = (props) => {
           {Array(rating)
             .fill()
             .map(() => (
-              <p> 🌟</p>
+              <p key={((Math.random() * 100000) + 1)}> 🌟</p>
             ))}
         </div>
       </div>
