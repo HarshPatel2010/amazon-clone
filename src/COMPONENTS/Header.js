@@ -1,12 +1,17 @@
 import React from 'react';
+
 import "../CSS/Header.css";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from "../CONTEXT/StateProvider";
 
+
+
+
 const Header = () => {
-    const [{basket}, setDispatch] = useStateValue();
+    const [{basket,user}, setDispatch] = useStateValue();
+
   return (
     <div className='header'>
       
@@ -31,7 +36,7 @@ const Header = () => {
                     Hello world!
                 </span>
                 <span className="header__items_lineTwo">
-                    sign In
+                     {user ? "Sign Out": "Sign In" }
                 </span>
             </div>
             </Link>

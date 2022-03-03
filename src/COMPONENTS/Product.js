@@ -8,7 +8,7 @@ const Product = (props) => {
 
   // state for the basket
   const [{basket}, setDispatch] = useStateValue();
-  console.log('this is the basket >>>',basket);
+  // console.log('this is the basket >>>',basket);
   
   const addToBasket = () => {
     //dispatch the item into the data layer

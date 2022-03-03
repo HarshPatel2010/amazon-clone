@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "../CSS/Login.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+// import auth  from "../firebase.js";
+import { auth } from "../firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useNavigate();
 
   //on change fuction for handle the change in input for both email and password
   const onChangeEmail = (e)=>{
@@ -15,16 +19,38 @@ const Login = () => {
   }
 
 //    for click on signin
-const signIn = (e)=>{
+const signIn =async (e)=>{
     e.preventDefault();
+    try {
+      const sauth = await signInWithEmailAndPassword(auth,email,password)
+      history("/")
+  
+      
+    } catch (error) {
+      alert(error.message)
+    }
     
     // do some fire base login stuff
 }
 
 //    for click on Register
-const register = (e)=>{
+const register = async(e)=>{
     e.preventDefault()
-  // do some fire base register stuff
+ 
+  try {
+    const rauth =  await createUserWithEmailAndPassword(auth,email,password)
+    console.log(auth);
+    history("/");
+  } catch (error) {
+    alert(error.message)
+  }
+
+
+
+ 
+  
+ 
+  
     
 }
 
