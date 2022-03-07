@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from "../CONTEXT/StateProvider";
+import {auth} from '../firebase'
 
 
 
@@ -12,11 +13,18 @@ import { useStateValue } from "../CONTEXT/StateProvider";
 const Header = () => {
     const [{basket,user}, setDispatch] = useStateValue();
 
+//if someone clicked on signOut so that fuction signOut the credentials
+const handleAuthetication = ()=>{
+    if(user){
+        auth.signOut()
+        console.log("user has benn successfully signed out")
+    }
+}
   return (
     <div className='header'>
       
         {/* amazon logo */}
-        <Link to="/">
+        <Link to= "/">
         <img className='header__logo' src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" />
         </Link>
         
@@ -30,10 +38,10 @@ const Header = () => {
         <div className="header__nav">
 
             {/* wrap in the login  */}
-            <Link to="/login">
-            <div className="header__items">
+            <Link to={!user && "/login"}>
+            <div onClick={handleAuthetication} className="header__items">
                 <span className="header__items_lineOne">
-                    Hello world!
+                  {user ? `Welcome: ${user.email}` : "hello Guest"}
                 </span>
                 <span className="header__items_lineTwo">
                      {user ? "Sign Out": "Sign In" }

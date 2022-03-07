@@ -73,8 +73,8 @@ const register = async(e)=>{
           <input type="password" name="password" value={password} onChange={onChangePassword}/>
           <button type="submit" className="login__signInButton" onClick={signIn}>Sign In</button>
           <p>
-            By continuing, you agree to AMAZON FAKE CLONE- By HARSH 's 1
-            Conditions of Use and Privacy Notice.
+            By continuing, you agree to AMAZON FAKE CLONE- By HARSH 's 
+            Conditions of  Use and Privacy Notice.
           </p>
           <button onClick={register} className="login__registerButton">
             Create Your Amazon Account

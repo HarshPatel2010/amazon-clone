@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  user:null
 };
 
 //{selector}reduce function to perform various operations in basket like itemcounts,total amount
@@ -17,6 +18,11 @@ const reducer =  (state, action) => {
         ...state,
         basket: [...state.basket, action.item],
       };
+    case "EMPTY_BASKET":
+      return{
+        ...state,
+        basket:[]
+      }
 
     case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex(

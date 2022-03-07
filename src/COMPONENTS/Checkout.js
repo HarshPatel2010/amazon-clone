@@ -7,7 +7,7 @@ import "../CSS/CheckoutProduct.css";
 
 
 const Checkout = () => {
-  const [{basket}, setDispatch] = useStateValue();
+  const [{basket,user}, setDispatch] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -15,8 +15,9 @@ const Checkout = () => {
           className="checkout__ad"
           src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
           alt="amazon ad"
-          className="checkout__ad" />
+          />
         <div>
+          <h3>Hey, {user ? `${user.email}`: " Guest"}</h3>
           <h2 className="checkout__title">Your shopping Basket</h2>
           {/* basketitem */}
           {basket.map((item)=>{
